@@ -21,8 +21,9 @@ if st.button("Generate Itinerary"):
         st.session_state.interests = interests
 
         # Switch to next page
-        st.switch_page("itinerary")
+        st.switch_page("pages/itinerary.py")
 
     else:
         st.warning("Please fill all required fields.")
+
 
