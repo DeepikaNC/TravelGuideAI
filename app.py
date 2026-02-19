@@ -8,7 +8,7 @@ st.write("Generate a personalized travel itinerary using AI")
 destination = st.text_input("Enter your travel destination:")
 days = st.number_input("Enter number of days:", min_value=1, step=1)
 nights = st.number_input("Enter number of nights:", min_value=1, step=1)
-interests = st.text_input("Enter your interests (e.g., adventure, food, spirituality):")
+interests = st.text_input("Enter your interests (e.g., adventure, food):")
 
 if st.button("Generate Itinerary"):
 
@@ -25,6 +25,7 @@ if st.button("Generate Itinerary"):
 
     else:
         st.warning("Please fill all required fields.")
+
 
 
 
