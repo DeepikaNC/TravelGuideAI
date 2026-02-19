@@ -33,7 +33,7 @@ if destination and days and nights:
         - Short travel tips
         - Short cultural insights
 
-        Keep response within 150–200 words.
+        Keep response within 100-150 words.
         """
 
         try:
