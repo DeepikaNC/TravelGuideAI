@@ -1,4 +1,27 @@
 import streamlit as st
+
+st.title("🌍 TravelGuideAI")
+
+st.header("✈️ Plan Your Trip")
+
+destination = st.text_input("Enter Destination")
+days = st.number_input("Number of Days", min_value=1, max_value=15)
+
+if st.button("Generate Itinerary"):
+
+    # Save data in session state
+    st.session_state.destination = destination
+    st.session_state.days = days
+
+    # Switch to next page
+    st.switch_page("pages/itinerary.py")
+
+
+
+
+
+'''
+import streamlit as st
 import google.generativeai as genai
 import os
 
@@ -46,3 +69,5 @@ if st.button("Generate Itinerary"):
 
     else:
         st.warning("Please fill all required fields.")
+
+'''
