@@ -2,40 +2,50 @@ import streamlit as st
 import google.generativeai as genai
 import os
 
-# Configure API
+# Configure Gemini API
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 model = genai.GenerativeModel("gemini-2.5-flash")
 
+st.set_page_config(page_title="Your Itinerary", page_icon="✈️")
+
 st.title("📍 Your Personalized Itinerary")
 
-# Get stored data
+# Retrieve data from session state
 destination = st.session_state.get("destination")
 days = st.session_state.get("days")
+nights = st.session_state.get("nights")
+interests = st.session_state.get("interests")
 
-if destination and days:
+if destination and days and nights:
 
-    prompt = f"""
-    Create a short {days}-day itinerary for {destination}.
-    User interests: {interests}
+    with st.spinner("Generating your personalized itinerary..."):
 
-                    Give:
-                        - Day-wise plan
-                        - 2–3 main attractions per day
-                        - 2 food recommendation per day
-                        - Travel tips in short
-                        - Cultural insights in short
+        prompt = f"""
+        Create a short and simple {days}-day travel itinerary for {destination}.
 
-    Keep the response concise and within 150–180 words.
-   
-    """
+        User interests: {interests}
 
-    try:
-        response = model.generate_content(prompt)
-        st.write(response.text)
+        Give:
+        - Day-wise plan
+        - 2–3 main attractions per day
+        - 2 food recommendations per day
+        - Short travel tips
+        - Short cultural insights
 
-    except Exception:
-        st.error("Error generating itinerary.")
+        Keep response within 150–200 words.
+        """
+
+        try:
+            response = model.generate_content(prompt)
+            st.markdown(response.text)
+
+        except Exception:
+            st.error("Error generating itinerary. Please try again.")
 
 else:
-    st.warning("No trip details found. Please go back.")
+    st.warning("No travel details found. Please go back.")
+
+# Back button
+if st.button("⬅ Back to Home"):
+    st.switch_page("app.py")
