@@ -40,8 +40,9 @@ if destination and days and nights:
             response = model.generate_content(prompt)
             st.markdown(response.text)
 
-        except Exception:
-            st.error("Error generating itinerary. Please try again.")
+        except Exception as e:
+            print(e)
+            return f"Error: {e}"
 
 else:
     st.warning("No travel details found. Please go back.")
