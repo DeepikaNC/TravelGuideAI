@@ -41,7 +41,7 @@ if destination and days and nights:
             st.markdown(response.text)
 
         except Exception:
-            return "Error generating itinerary. Please try again."
+            st.error("Error generating itinerary. Please try again.")
 
 else:
     st.warning("No travel details found. Please go back.")
