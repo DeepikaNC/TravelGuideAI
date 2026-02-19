@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="TravelGuideAI", page_icon="🌍")
 
-st.title("🌍 Travel Itinerary Generator")
+st.title("🌍 Travel Guide AI")
 st.write("Generate a personalized travel itinerary using AI")
 
 destination = st.text_input("Enter your travel destination:")
@@ -25,5 +25,6 @@ if st.button("Generate Itinerary"):
 
     else:
         st.warning("Please fill all required fields.")
+
 
 
