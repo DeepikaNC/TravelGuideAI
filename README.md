@@ -6,6 +6,16 @@ It simplifies trip planning by providing attractions, food suggestions, cultural
 
 ---
 
+## ✨ Features
+
+- Personalized travel itinerary generation
+- Day-wise structured travel plan
+- Attraction & food recommendations
+- Travel tips and cultural insights
+- Quick and simple user interface
+
+---
+
 ## 🚀 Tech Stack
 
 - Python 3.11  
