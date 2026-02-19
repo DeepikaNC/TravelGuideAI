@@ -1,35 +1,5 @@
 import streamlit as st
 
-st.title("🌍 TravelGuideAI")
-
-st.header("✈️ Plan Your Trip")
-
-destination = st.text_input("Enter Destination")
-days = st.number_input("Number of Days", min_value=1, max_value=15)
-
-if st.button("Generate Itinerary"):
-
-    # Save data in session state
-    st.session_state.destination = destination
-    st.session_state.days = days
-
-    # Switch to next page
-    st.switch_page("pages/itinerary.py")
-
-
-
-
-
-'''
-import streamlit as st
-import google.generativeai as genai
-import os
-
-# Configure Gemini API using environment variable
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-
-model = genai.GenerativeModel("gemini-2.5-flash")
-
 st.set_page_config(page_title="TravelGuideAI", page_icon="🌍")
 
 st.title("🌍 Travel Itinerary Generator")
@@ -44,30 +14,14 @@ if st.button("Generate Itinerary"):
 
     if destination and days and nights:
 
-        with st.spinner("Generating your personalized itinerary..."):
+        # Store data in session state
+        st.session_state.destination = destination
+        st.session_state.days = days
+        st.session_state.nights = nights
+        st.session_state.interests = interests
 
-            prompt = f"""
-                Create a short and simple {days}-day travel itinerary for {destination}.
-
-                    User interests: {interests}
-
-                    Give:
-                        - Day-wise plan
-                        - 2–3 main attractions per day
-                        - 2 food recommendation per day
-                        - Travel tips in short
-                        - Cultural insights in short
-
-                    Keep the response concise and within 150–200 words.
-            """
-
-
-            response = model.generate_content(prompt)
-
-            st.subheader("📍 Your Personalized Itinerary:")
-            st.markdown(response.text)
+        # Switch to next page
+        st.switch_page("pages/itinerary.py")
 
     else:
         st.warning("Please fill all required fields.")
-
-'''
