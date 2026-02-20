@@ -4,6 +4,13 @@ TravelGuideAI is an intelligent web application that creates personalized travel
 Users enter their destination, trip duration, and interests to receive a structured day-wise travel plan.  
 It simplifies trip planning by providing attractions, food suggestions, cultural insights, and travel tips in one place.
 
+
+🌍 Live Application: [Click Here to View the App](https://ai-travel-itinerary.streamlit.app/)
+
+---
+
+## About the Project
+
 ---
 
 ## ✨ Features
